@@ -23,6 +23,14 @@ function getComputerChoice() {
 // Check winner. 
 function playRound(event) {
 
+    // Initialize user score Tracker.
+    let userScore = 0;
+
+    // Initialize computer score Tracker.
+    let computerScore = 0;
+    
+
+    
     // Get computer's selection.
     let computerSelection = (getComputerChoice()).toLowerCase();
 
@@ -63,8 +71,6 @@ function playRound(event) {
 // Play Rock, Paper, Scissors 5 times.
 function game() {
 
-    // Initialize score Tracker.
-    let userScore = 0;
 
     // Play the game 5 times.
     for (let i = 0; i < 5; i++) {
