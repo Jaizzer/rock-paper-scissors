@@ -1,4 +1,4 @@
-game();
+
 
 // Randomly generate 'Rock', 'Paper' or 'Scissors'.
 function getComputerChoice() {
