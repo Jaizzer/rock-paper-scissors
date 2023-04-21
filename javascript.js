@@ -29,8 +29,6 @@ function playRound(event) {
     // Initialize computer score Tracker.
     let computerScore = 0;
     
-
-    
     // Get computer's selection.
     let computerSelection = (getComputerChoice()).toLowerCase();
 
@@ -47,16 +45,14 @@ function playRound(event) {
 
         // Print Victory Message.
         console.log(`You Won! ${playerSelection} Beats ${computerSelection}`);
-
-        return "victory";
+        
+        userScore++;
     }
     // The player and the computer are tied.
     else if (playerSelection === computerSelection) {
 
         // Print Tie Message.
         console.log(`Tie! Repeat Round`);
-
-        return "tie";
     }
     // The player lost.
     else {
@@ -64,33 +60,8 @@ function playRound(event) {
         // Print defeat message.
         console.log(`You Lose! ${computerSelection} Beats ${playerSelection}`);
 
-        return "defeat";
+        computerScore++;
     }
 }
 
-// Play Rock, Paper, Scissors 5 times.
-function game() {
-
-
-    // Play the game 5 times.
-    for (let i = 0; i < 5; i++) {
-
-        // Increment score if the player won the round.
-        if (playRound(computerSelection, playerSelection) === "victory") {
-            userScore++;
-        }
-        // Repeat round if the computer and player are tied.
-        else if (playRound(computerSelection, playerSelection) === "tie") {
-            i--;
-        }
-    }
-
-    // Check whether the user won.
-    if (userScore > 2) {
-        console.log("You Won the game!");
-    }
-    else {
-        console.log("You Lost the game.")
-    }
-}
 
