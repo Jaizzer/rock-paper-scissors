@@ -29,6 +29,9 @@ function playRound(event) {
     // Get the player's selection.
     let playerSelection = event.target.textContent;
 
+    // Display the computer and user's selection
+    console.log(`Computer: ${computerSelection}  You: ${playerSelection}`)
+
     // The player won.
     if ((playerSelection === "scissor" && computerSelection == "paper") ||
         (playerSelection === "paper" && computerSelection == "rock") ||
@@ -65,10 +68,6 @@ function game() {
 
     // Play the game 5 times.
     for (let i = 0; i < 5; i++) {
-
-    
-        // Display the computer and user's selection
-        console.log(`Computer: ${computerSelection}  You: ${playerSelection}`)
 
         // Increment score if the player won the round.
         if (playRound(computerSelection, playerSelection) === "victory") {
