@@ -28,40 +28,45 @@ function playRound(event) {
 
     // Initialize computer score Tracker.
     let computerScore = 0;
-    
-    // Get computer's selection.
-    let computerSelection = (getComputerChoice()).toLowerCase();
 
-    // Get the player's selection.
-    let playerSelection = event.target.textContent;
+    do {
+        // Get computer's selection.
+        let computerSelection = (getComputerChoice()).toLowerCase();
 
-    // Display the computer and user's selection
-    console.log(`Computer: ${computerSelection}  You: ${playerSelection}`)
+        // Get the player's selection.
+        let playerSelection = event.target.textContent;
 
-    // The player won.
-    if ((playerSelection === "scissor" && computerSelection == "paper") ||
-        (playerSelection === "paper" && computerSelection == "rock") ||
-        (playerSelection === "rock" && computerSelection == "scissor")) {
+        // Display the computer and user's selection
+        console.log(`Computer: ${computerSelection}  You: ${playerSelection}`)
 
-        // Print Victory Message.
-        console.log(`You Won! ${playerSelection} Beats ${computerSelection}`);
-        
-        userScore++;
-    }
-    // The player and the computer are tied.
-    else if (playerSelection === computerSelection) {
+        // The player won.
+        if ((playerSelection === "scissor" && computerSelection == "paper") ||
+            (playerSelection === "paper" && computerSelection == "rock") ||
+            (playerSelection === "rock" && computerSelection == "scissor")) {
 
-        // Print Tie Message.
-        console.log(`Tie! Repeat Round`);
-    }
-    // The player lost.
-    else {
+            // Print Victory Message.
+            console.log(`You Won! ${playerSelection} Beats ${computerSelection}`);
 
-        // Print defeat message.
-        console.log(`You Lose! ${computerSelection} Beats ${playerSelection}`);
+            userScore++;
+        }
+        // The player and the computer are tied.
+        else if (playerSelection === computerSelection) {
 
-        computerScore++;
-    }
+            // Print Tie Message.
+            console.log(`Tie!`);
+        }
+        // The player lost.
+        else {
+
+            // Print defeat message.
+            console.log(`You Lose! ${computerSelection} Beats ${playerSelection}`);
+
+            computerScore++;
+        }
+    } while (userScore !== 5 || computerScore !== 5)
+
+
+
 }
 
 
