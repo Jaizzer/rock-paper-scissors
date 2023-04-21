@@ -21,17 +21,23 @@ function getComputerChoice() {
 }
 
 // Check winner. 
-function playRound(computerSelection, playerSelection) {
-    
+function playRound(event) {
+
+    // Get computer's selection.
+    let computerSelection = (getComputerChoice()).toLowerCase();
+
+    // Get the player's selection.
+    let playerSelection = event.target.textContent;
+
     // The player won.
-    if ((playerSelection === "scissor" && computerSelection == "paper") || 
-        (playerSelection === "paper" && computerSelection == "rock") || 
+    if ((playerSelection === "scissor" && computerSelection == "paper") ||
+        (playerSelection === "paper" && computerSelection == "rock") ||
         (playerSelection === "rock" && computerSelection == "scissor")) {
 
-            // Print Victory Message.
-            console.log(`You Won! ${playerSelection} Beats ${computerSelection}`);
+        // Print Victory Message.
+        console.log(`You Won! ${playerSelection} Beats ${computerSelection}`);
 
-            return "victory";
+        return "victory";
     }
     // The player and the computer are tied.
     else if (playerSelection === computerSelection) {
@@ -54,24 +60,13 @@ function playRound(computerSelection, playerSelection) {
 // Play Rock, Paper, Scissors 5 times.
 function game() {
 
-     // Initialize computer's selection.
-    let computerSelection; 
-
-    // Initialize user's selection.
-    let playerSelection; 
-    
     // Initialize score Tracker.
     let userScore = 0;
 
     // Play the game 5 times.
     for (let i = 0; i < 5; i++) {
 
-        // Get computer's selection.
-        computerSelection = (getComputerChoice()).toLowerCase();
-        
-        // Get player's selection.
-        playerSelection = (prompt("Rock, Paper, or Scissor? ")).toLowerCase();
-        
+    
         // Display the computer and user's selection
         console.log(`Computer: ${computerSelection}  You: ${playerSelection}`)
 
