@@ -1,4 +1,21 @@
-game();
+// Initialize user score Tracker.
+let userScore = 0;
+
+// Initialize computer score Tracker.
+let computerScore = 0;
+
+// Get all buttons.
+let buttons = Array.from(document.querySelectorAll("button"));
+
+// Add event lister to all buttons.
+buttons.forEach(button => button.addEventListener("click", playRound))
+
+
+let scoreDisplay = document.querySelector("#score");
+let selectionDisplay = document.querySelector("#selection");
+let decisionDisplay = document.querySelector("#decision");
+let finalResult = document.querySelector("#final-result");
+
 
 // Randomly generate 'Rock', 'Paper' or 'Scissors'.
 function getComputerChoice() {
@@ -21,76 +38,50 @@ function getComputerChoice() {
 }
 
 // Check winner. 
-function playRound(computerSelection, playerSelection) {
-    
+function playRound(event) {
+
+
+    // Get computer's selection.
+    let computerSelection = (getComputerChoice()).toLowerCase();
+
+    // Get the player's selection.
+    let playerSelection = event.target.textContent;
+
+    // Display the computer and user's selection
+    selectionDisplay.textContent = `Computer: ${computerSelection}  You: ${playerSelection}`;
+
     // The player won.
-    if ((playerSelection === "scissor" && computerSelection == "paper") || 
-        (playerSelection === "paper" && computerSelection == "rock") || 
+    if ((playerSelection === "scissor" && computerSelection == "paper") ||
+        (playerSelection === "paper" && computerSelection == "rock") ||
         (playerSelection === "rock" && computerSelection == "scissor")) {
 
-            // Print Victory Message.
-            console.log(`You Won! ${playerSelection} Beats ${computerSelection}`);
+        // Print Victory Message.
+        decisionDisplay.textContent = `You Won! ${playerSelection} Beats ${computerSelection}`;
 
-            return "victory";
+        userScore++;
     }
     // The player and the computer are tied.
     else if (playerSelection === computerSelection) {
 
         // Print Tie Message.
-        console.log(`Tie! Repeat Round`);
-
-        return "tie";
+        decisionDisplay.textContent = `Tie!`;
     }
     // The player lost.
     else {
 
         // Print defeat message.
-        console.log(`You Lose! ${computerSelection} Beats ${playerSelection}`);
+        decisionDisplay.textContent = `You Lose! ${computerSelection} Beats ${playerSelection}`;
 
-        return "defeat";
+        computerScore++;
     }
+
+    // Display who got to 5 first.
+    if (userScore === 5 || computerScore === 5) {
+        finalResult.textContent = (userScore === 5) ? "You Won" : "Computer Won!";
+        userScore = 0;
+        computerScore = 0;
+    }
+
+    // Display current score.
+    scoreDisplay.textContent = `Computer: ${computerScore}   User: ${userScore}`;
 }
-
-// Play Rock, Paper, Scissors 5 times.
-function game() {
-
-     // Initialize computer's selection.
-    let computerSelection; 
-
-    // Initialize user's selection.
-    let playerSelection; 
-    
-    // Initialize score Tracker.
-    let userScore = 0;
-
-    // Play the game 5 times.
-    for (let i = 0; i < 5; i++) {
-
-        // Get computer's selection.
-        computerSelection = (getComputerChoice()).toLowerCase();
-        
-        // Get player's selection.
-        playerSelection = (prompt("Rock, Paper, or Scissor? ")).toLowerCase();
-        
-        // Display the computer and user's selection
-        console.log(`Computer: ${computerSelection}  You: ${playerSelection}`)
-
-        // Increment score if the player won the round.
-        if (playRound(computerSelection, playerSelection) === "victory") {
-            userScore++;
-        }
-        // Repeat round if the computer and player are tied.
-        else if (playRound(computerSelection, playerSelection) === "tie") {
-            i--;
-        }
-    }
-
-    // Check whether the user won.
-    if (userScore > 2) {
-        console.log("You Won the game!");
-    }
-    else {
-        console.log("You Lost the game.")
-    }
-}
-
