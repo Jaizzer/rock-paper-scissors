@@ -77,7 +77,7 @@ function playRound(event) {
 
     // Display who got to 5 first.
     if (userScore === 5 || computerScore === 5) {
-        console.log(userScore === 5 ? "You reached 5!" : "Computer reached 5!");
+        finalResult.textContent = (userScore === 5) ? "You Won" : "Computer Won!";
         userScore = 0;
         computerScore = 0;
     }
