@@ -86,4 +86,5 @@ function playRound(event) {
     scoreDisplay.textContent = `Computer: ${computerScore}   User: ${userScore}`;
 }
 
+// Jaizzer
 
