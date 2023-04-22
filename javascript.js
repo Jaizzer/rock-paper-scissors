@@ -82,6 +82,7 @@ function playRound(event) {
         computerScore = 0;
     }
 
+    
     // Display current score.
     scoreDisplay.textContent = `Computer: ${computerScore}   User: ${userScore}`;
 }
