@@ -4,6 +4,12 @@
  // Initialize computer score Tracker.
  let computerScore = 0;
 
+ // Get all buttons.
+ let buttons = Array.from(document.querySelectorAll("button"));
+
+ buttons.forEach()
+
+
 // Randomly generate 'Rock', 'Paper' or 'Scissors'.
 function getComputerChoice() {
 
