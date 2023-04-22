@@ -14,6 +14,7 @@ buttons.forEach(button => button.addEventListener("click", playRound))
 let scoreDisplay = document.querySelector("#score");
 let selectionDisplay = document.querySelector("#selection");
 let decisionDisplay = document.querySelector("#decision");
+let finalResult = document.querySelector("#final-result");
 
 
 // Randomly generate 'Rock', 'Paper' or 'Scissors'.
