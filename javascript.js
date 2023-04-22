@@ -47,7 +47,7 @@ function playRound(event) {
     let playerSelection = event.target.textContent;
 
     // Display the computer and user's selection
-    console.log(`Computer: ${computerSelection}  You: ${playerSelection}`)
+    selectionDisplay.textContent = `Computer: ${computerSelection}  You: ${playerSelection}`;
 
     // The player won.
     if ((playerSelection === "scissor" && computerSelection == "paper") ||
@@ -55,7 +55,7 @@ function playRound(event) {
         (playerSelection === "rock" && computerSelection == "scissor")) {
 
         // Print Victory Message.
-        console.log(`You Won! ${playerSelection} Beats ${computerSelection}`);
+        decisionDisplay.textContent = `You Won! ${playerSelection} Beats ${computerSelection}`;
 
         userScore++;
     }
@@ -63,13 +63,13 @@ function playRound(event) {
     else if (playerSelection === computerSelection) {
 
         // Print Tie Message.
-        console.log(`Tie!`);
+        decisionDisplay.textContent`Tie!`;
     }
     // The player lost.
     else {
 
         // Print defeat message.
-        console.log(`You Lose! ${computerSelection} Beats ${playerSelection}`);
+        decisionDisplay.textContent`You Lose! ${computerSelection} Beats ${playerSelection}`;
 
         computerScore++;
     }
