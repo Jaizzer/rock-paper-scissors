@@ -26,7 +26,8 @@ function getComputerChoice() {
 
 // Check winner. 
 function playRound(event) {
-    do {
+
+    
         // Get computer's selection.
         let computerSelection = (getComputerChoice()).toLowerCase();
 
@@ -60,7 +61,8 @@ function playRound(event) {
 
             computerScore++;
         }
-    } while (userScore !== 5 || computerScore !== 5)
+
+
 
 
 
