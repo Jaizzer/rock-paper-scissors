@@ -1,4 +1,8 @@
+ // Initialize user score Tracker.
+ let userScore = 0;
 
+ // Initialize computer score Tracker.
+ let computerScore = 0;
 
 // Randomly generate 'Rock', 'Paper' or 'Scissors'.
 function getComputerChoice() {
@@ -22,13 +26,6 @@ function getComputerChoice() {
 
 // Check winner. 
 function playRound(event) {
-
-    // Initialize user score Tracker.
-    let userScore = 0;
-
-    // Initialize computer score Tracker.
-    let computerScore = 0;
-
     do {
         // Get computer's selection.
         let computerSelection = (getComputerChoice()).toLowerCase();
