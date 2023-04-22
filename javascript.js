@@ -7,8 +7,8 @@
  // Get all buttons.
  let buttons = Array.from(document.querySelectorAll("button"));
 
- buttons.forEach()
-
+ // Add events to all buttons.
+ buttons.forEach(button => button.addEventListener("click", playRound))
 
 // Randomly generate 'Rock', 'Paper' or 'Scissors'.
 function getComputerChoice() {
