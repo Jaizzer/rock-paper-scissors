@@ -75,6 +75,8 @@ function playRound(event) {
         computerScore++;
     }
 
+    let florenz = "florenz";
+
     // Display who got to 5 first.
     if (userScore === 5 || computerScore === 5) {
         finalResult.textContent = (userScore === 5) ? "You Won" : "Computer Won!";
