@@ -63,13 +63,13 @@ function playRound(event) {
     else if (playerSelection === computerSelection) {
 
         // Print Tie Message.
-        decisionDisplay.textContent`Tie!`;
+        decisionDisplay.textContent = `Tie!`;
     }
     // The player lost.
     else {
 
         // Print defeat message.
-        decisionDisplay.textContent`You Lose! ${computerSelection} Beats ${playerSelection}`;
+        decisionDisplay.textContent = `You Lose! ${computerSelection} Beats ${playerSelection}`;
 
         computerScore++;
     }
